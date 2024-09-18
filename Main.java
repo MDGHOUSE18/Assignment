@@ -49,7 +49,7 @@ public class Main {
         int wagePerHour = 20;
         int fullDay = 8;
         int halfDay = 4;
-        System.out.println("===== WELCOME TO EMPLOYEE WAGE COMPUTATION ======");
+        System.out.println("===== WELCOME TO EMPLOYEE WAGE COMPUTATION =======");
         System.out.println("");
 
         int empCheck = (int) Math.floor(Math.random() * 10) % 2;
