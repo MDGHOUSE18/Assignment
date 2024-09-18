@@ -15,6 +15,8 @@ class EmployeeWageComputation {
     int totalHourAbsent;
     int empCheck;
     int totalHours;
+    int totalNoOfDays;
+
     EmployeeWageComputation() {
 
         this.wagePerHour = 20;
@@ -91,26 +93,64 @@ class EmployeeWageComputation {
             System.out.println("The monthly wage is: " + monthlyWage);
         }
     }
+    void combineMethod() {
+        Scanner sc1 = new Scanner(System.in);
+        System.out.print("Enter the number of days you were supposed to work ( between 1 -20 ) for: ");
+        totalNoOfDays = sc1.nextInt();
+
+        for (int i = 1; i <= totalNoOfDays; i++) {
+            System.out.println("DAY NO :" + i);
+            attendanceCheck();
+            dailyWage();
+            monthlyWage();
+        }
+            monthlyWageCondition();
+
+            sc1.close();
+
+    }
 }
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int totalNoOfDays;
+
+
+        EmployeeWageComputation TataMotors = new EmployeeWageComputation("Tata Motors", 20, 5);
+        EmployeeWageComputation Bridgelabz = new EmployeeWageComputation("Bridelabz", 16, 6);
+        EmployeeWageComputation SamSolutions = new EmployeeWageComputation("Sam Solutions", 25, 3);
         System.out.println("===== WELCOME TO EMPLOYEE WAGE COMPUTATION ======");
         System.out.println("");
-        System.out.print("Enter the number of days you were supposed to work ( between 1 -20 ): ");
-        totalNoOfDays = sc.nextInt();
-        EmployeeWageComputation e1 = new EmployeeWageComputation();
+        char userChoice = 'Y' ;
+        while (userChoice == 'Y') {
+        System.out.println("Enter your choice 1:Tata Motors 2:Bridelabz  3:Sam Sultions : ");
+        int choice = sc.nextInt();
 
-        for (int i = 1; i <= totalNoOfDays; i++) {
-            System.out.println("The day is :" + i);
-            e1.attendanceCheck();
-            e1.dailyWage();
-            e1.monthlyWage();
+
+            switch (choice) {
+                case 1 -> {
+                    System.out.println("COMPANY NAME :" + TataMotors.companyName);
+                    TataMotors.combineMethod();
+                    System.out.println("\n");
+                }
+                case 2 -> {
+                    System.out.println("COMPANY NAME :" + Bridgelabz.companyName);
+                    Bridgelabz.combineMethod();
+                    System.out.println("\n");
+
+                }
+                case 3 -> {
+                    System.out.println("COMPANY NAME :" + SamSolutions.companyName);
+                    SamSolutions.combineMethod();
+                    System.out.println("\n");
+                }
+                default -> System.out.println("Not a valid choice");
+            }
+            System.out.println("Do you wish to check any other comapny details : if yes press 'Y' or else 'N' :");
+            userChoice = sc.next().charAt(0);
+
+
         }
-
-        e1.monthlyWageCondition();
-
+        System.out.println("Thank you for using the service");
         sc.close();
     }
 }
