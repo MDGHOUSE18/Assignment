@@ -45,5 +45,17 @@ public class Main {
     public static void main(String[] args) {
         EmployeeWageComputation tataMotors = new EmployeeWageComputation("Tata Motors", 20, 5);
         System.out.println(tataMotors.toString());
+
+        System.out.println("===== WELCOME TO EMPLOYEE WAGE COMPUTATION ======");
+
+        int empCheck = (int) Math.floor(Math.random() * 10) % 2;
+        if(empCheck == 0)
+        {
+            System.out.println("Employee is Present");
+        }
+        else
+        {
+            System.out.println("Employee is Absent");
+        }
     }
 }
